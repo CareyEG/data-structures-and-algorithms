@@ -13,7 +13,8 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
   finalExam: true };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
+  let courseKey = Object.keys(obj);
+  return courseKey;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,7 +71,9 @@ let characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  for(let i in arr){
+    houses.push(Object.values(arr[i])[3]);
+  }
   return houses;
 };
 
@@ -87,7 +90,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  for(let i in arr){
+    if(arr[i].name===character){
+      let kids = Object.values(arr[i].children);
+      return(kids.length>1)?true:false;
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -99,7 +107,12 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  for(let i in arr){
+    if(arr[i] === character){
+      let kids = Object.entries(arr[i])[2];
+      return(kids.length === 0)?true:false;
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,7 +122,8 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  const chars = arr.split('');
+  return chars.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
